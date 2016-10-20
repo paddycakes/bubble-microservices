@@ -4,7 +4,6 @@ import com.bubble.knowledge.query.Application;
 import com.bubble.knowledge.query.repository.Question;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;
@@ -19,19 +18,33 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest(randomPort = true)
-public class QuestionQueryControllerTests {
+public class QuestionQueryControllerTests extends AbstractQueryControllerTests {
 
     // TODO: Should seed database in this test class.
 
-    @Value("${local.server.port}")
-    private int port;
-
     @Test
     public void should_return_question_for_valid_id() throws Exception {
-        String url = "http://localhost:" + this.port + "/questions/1";
+        // Given
+        String url = getUrl("/questions/1");
+
+        // When
         ResponseEntity<Question> entity = new TestRestTemplate().getForEntity(url, Question.class);
+
+        // Then
         assertThat(entity.getStatusCode(), equalTo(HttpStatus.OK));
         assertThat(entity.getBody().getText(), containsString("Where is the best pub?"));
+    }
+
+    @Test
+    public void should_return_http_not_found_status_for_unknown_question() throws Exception {
+        // Given
+        String url = getUrl("/questions/4");
+
+        // When
+        ResponseEntity<Question> entity = new TestRestTemplate().getForEntity(url, Question.class);
+
+        // Then
+        assertThat(entity.getStatusCode(), equalTo(HttpStatus.NOT_FOUND));
     }
 
 }

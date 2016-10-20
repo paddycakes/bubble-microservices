@@ -23,12 +23,9 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest(randomPort = true)
-public class AnswerQueryControllerTests {
+public class AnswerQueryControllerTests extends AbstractQueryControllerTests {
 
     // TODO: Should seed database in this test class.
-
-    @Value("${local.server.port}")
-    private int port;
 
     @Test
     public void should_return_answers_for_existing_question() throws Exception {
@@ -59,7 +56,4 @@ public class AnswerQueryControllerTests {
         return new ParameterizedTypeReference<Collection<Answer>>() {};
     }
 
-    private String getUrl(String path) {
-        return "http://localhost:" + this.port + path;
-    }
 }
