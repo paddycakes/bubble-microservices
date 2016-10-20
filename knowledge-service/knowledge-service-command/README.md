@@ -1,8 +1,34 @@
-== Building and running the sample
-Use the following commands to build run the application:
+knowledge-service-command
+-------------------------
 
-```
-$ mvn clean package
-$ java -jar target/knowledge-service-command-0.0.1-SNAPSHOT.jar
-```
+## Overview
 
+
+## Maven Build
+
+
+## Build Tasks
+
+### Clean the output directories:
+
+	mvn clean
+
+### Running tests
+
+	mvn test
+	
+Test reports can be found at:
+
+	
+
+### Running application
+
+Firstly, build and package the application
+
+    mvn clean package
+    
+and then to run it you should execute
+
+    java -jar target/knowledge-service-command-<version>.jar
+
+replacing <version> with the correct version number. It will start the micro-service on port 8080 by default.
