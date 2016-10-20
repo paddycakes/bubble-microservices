@@ -18,6 +18,7 @@
 	<modules>
 		<module>knowledge-service-command</module>
 		<module>knowledge-service-query</module>
+        <module>knowledge-service-common</module>
 	</modules>	
 	<build>
 		<plugins>
