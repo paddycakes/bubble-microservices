@@ -31,4 +31,4 @@ and then to run it you should execute
 
     java -jar target/knowledge-service-query-<version>.jar
 
-replacing <version> with the correct version number. It will start the micro-service on port 8080 by default.
+replacing `<version>` with the correct version number. It will start the micro-service on port 8080 by default.
