@@ -4,29 +4,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-// TODO: Should this be renamed to QuestionInfo to provide an
-//       enriched structure around the db object?
-
 @Entity
-public class Question {
+public class Answer {
 
     @Id
     @GeneratedValue
     private long id;
 
     private String text;
+    private long questionId;
     private long userId;
-    // private LocalDate created;
 
-    public Question(String text, long userId) {
+    public Answer(String text, long questionId, long userId) {
         this.text = text;
+        this.questionId = questionId;
         this.userId = userId;
     }
 
-    public Question() { }
+    public Answer() { }
+
+    public long getId() {
+        return id;
+    }
 
     public String getText() {
         return text;
+    }
+
+    public long getQuestionId() {
+        return questionId;
     }
 
     public long getUserId() {
@@ -35,6 +41,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return text + " " + userId;
+        return id + " " + text + " " + questionId + " " + userId;
     }
+
 }

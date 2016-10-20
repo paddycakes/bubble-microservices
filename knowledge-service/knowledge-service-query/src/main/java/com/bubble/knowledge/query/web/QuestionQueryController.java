@@ -20,8 +20,8 @@ public class QuestionQueryController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Question> findQuestion(@PathVariable("id") String questionId) {
-        Question r = questionQueryService.findById(questionId);
-        return r == null ?  new ResponseEntity<>(HttpStatus.NOT_FOUND) : ResponseEntity.ok(r);
+        Question q = questionQueryService.findById(questionId);
+        return q == null ?  new ResponseEntity<>(HttpStatus.NOT_FOUND) : ResponseEntity.ok(q);
     }
 
 

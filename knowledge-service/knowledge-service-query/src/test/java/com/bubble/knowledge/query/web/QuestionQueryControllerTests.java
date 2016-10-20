@@ -1,6 +1,7 @@
 package com.bubble.knowledge.query.web;
 
 import com.bubble.knowledge.query.Application;
+import com.bubble.knowledge.query.repository.Question;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,12 +27,11 @@ public class QuestionQueryControllerTests {
     private int port;
 
     @Test
-    public void getQuestion() throws Exception {
+    public void should_return_question_for_valid_id() throws Exception {
         String url = "http://localhost:" + this.port + "/questions/1";
-        ResponseEntity<String> entity = new TestRestTemplate().getForEntity(
-                url, String.class);
+        ResponseEntity<Question> entity = new TestRestTemplate().getForEntity(url, Question.class);
         assertThat(entity.getStatusCode(), equalTo(HttpStatus.OK));
-        assertThat(entity.getBody(), containsString("Where is the best pub?"));
+        assertThat(entity.getBody().getText(), containsString("Where is the best pub?"));
     }
 
 }
