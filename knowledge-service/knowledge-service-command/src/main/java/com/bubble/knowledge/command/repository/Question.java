@@ -27,6 +27,10 @@ public class Question {
 
     public Question() { }
 
+    public long getId() {
+        return id;
+    }
+
     public String getText() {
         return text;
     }
@@ -37,6 +41,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return text + " " + userId;
+        return id + " " + text + " " + userId;
     }
+
 }

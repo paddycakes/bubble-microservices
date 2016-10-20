@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,6 +30,7 @@ public class QuestionCommandControllerTests {
         Question question = new Question("Where is the nearest taxi rank?", 4L);
         ResponseEntity<Question> entity = new TestRestTemplate().postForEntity(url, question, Question.class);
         assertThat(entity.getStatusCode(), equalTo(HttpStatus.CREATED));
+        assertThat(entity.getBody().getId(), is(1L));
     }
 
 }
