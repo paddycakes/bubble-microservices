@@ -1,10 +1,9 @@
 package com.bubble.knowledge.query.web;
 
+import com.bubble.knowledge.common.Answer;
 import com.bubble.knowledge.query.Application;
-import com.bubble.knowledge.query.repository.Answer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;

@@ -1,7 +1,7 @@
 package com.bubble.knowledge.query.web;
 
+import com.bubble.knowledge.common.Question;
 import com.bubble.knowledge.query.Application;
-import com.bubble.knowledge.query.repository.Question;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;

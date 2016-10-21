@@ -1,7 +1,6 @@
 package com.bubble.knowledge.query.web;
 
-// import com.bubble.knowledge.common.Question;
-import com.bubble.knowledge.query.repository.Question;
+import com.bubble.knowledge.common.Question;
 import com.bubble.knowledge.query.service.QuestionQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

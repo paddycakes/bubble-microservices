@@ -1,7 +1,7 @@
 package com.bubble.knowledge.command.web;
 
 import com.bubble.knowledge.command.Application;
-import com.bubble.knowledge.command.repository.Question;
+import com.bubble.knowledge.common.Question;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;

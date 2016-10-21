@@ -1,5 +1,6 @@
 package com.bubble.knowledge.query.repository;
 
+import com.bubble.knowledge.common.Answer;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;

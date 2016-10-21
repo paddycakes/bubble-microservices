@@ -1,7 +1,7 @@
 package com.bubble.knowledge.command.web;
 
-import com.bubble.knowledge.command.repository.Question;
 import com.bubble.knowledge.command.service.QuestionCommandService;
+import com.bubble.knowledge.common.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class QuestionCommandController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity<Question> addQuestion(@RequestBody Question question) {
         Question savedQuestion = questionCommandService.save(question);
-        return new ResponseEntity(savedQuestion, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedQuestion, HttpStatus.CREATED);
     }
 
 
