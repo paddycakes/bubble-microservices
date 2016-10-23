@@ -36,7 +36,7 @@ public class Application {
     private void seedAnswers(AnswerRepository repository) {
         repository.save(new Answer("The Dog and Duck on Hoppers Lane", 1L, 4L));
         repository.save(new Answer("The Salisbury Arms by the Green.", 1L, 2L));
-        repository.save(new Answer("Eco-Coffee do great coffees.", 3L, 3L));
+        repository.save(new Answer("Eco-Coffee do great coffees.", 2L, 3L));
     }
 
     public static void main(String[] args) {

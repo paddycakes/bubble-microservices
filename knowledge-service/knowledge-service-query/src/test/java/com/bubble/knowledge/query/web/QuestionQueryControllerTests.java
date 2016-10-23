@@ -29,7 +29,7 @@ public class QuestionQueryControllerTests extends AbstractQueryControllerTests {
     // TODO: Should seed database in this test class.
 
     @Test
-    public void should_return_success_for_request_for_existing_question() throws Exception {
+    public void should_return_question_for_request_for_existing_question() throws Exception {
         // Given
         String url = getUrl("/questions/1");
 
@@ -42,7 +42,7 @@ public class QuestionQueryControllerTests extends AbstractQueryControllerTests {
     }
 
     @Test
-    public void should_return_not_found_status_for_request_for_unknown_question() throws Exception {
+    public void should_return_not_found_for_request_for_unknown_question() throws Exception {
         // Given
         String url = getUrl("/questions/4");
 
@@ -54,7 +54,7 @@ public class QuestionQueryControllerTests extends AbstractQueryControllerTests {
     }
 
     @Test
-    public void should_return_success_for_request_for_existing_question_with_answers() throws Exception {
+    public void should_return_answers_for_request_for_existing_question_with_answers() throws Exception {
         // Given
         String url = getUrl("/questions/1/answers");
 
@@ -67,7 +67,20 @@ public class QuestionQueryControllerTests extends AbstractQueryControllerTests {
     }
 
     @Test
-    public void should_return_not_found_status_for_request_for_answers_to_unknown_question() throws Exception {
+    public void should_return_no_answers_for_request_for_existing_question_with_no_answers() throws Exception {
+        // Given
+        String url = getUrl("/questions/3/answers");
+
+        // When
+        ResponseEntity<Collection<Answer>> entity = new TestRestTemplate().exchange(url, HttpMethod.GET, null, getResponseType());
+
+        // Then
+        assertThat(entity.getStatusCode(), equalTo(HttpStatus.OK));
+        assertThat(entity.getBody().size(), is(0));
+    }
+
+    @Test
+    public void should_return_not_found_for_request_for_answers_to_unknown_question() throws Exception {
         // Given
         String url = getUrl("/questions/4/answers");
 
