@@ -25,7 +25,7 @@ public class QuestionCommandControllerTests {
     private int port;
 
     @Test
-    public void saveQuestion() throws Exception {
+    public void should_create_a_new_question() throws Exception {
         String url = "http://localhost:" + this.port + "/questions/";
         Question question = new Question("Where is the nearest taxi rank?", 4L);
         ResponseEntity<Question> entity = new TestRestTemplate().postForEntity(url, question, Question.class);
