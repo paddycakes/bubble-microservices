@@ -14,8 +14,7 @@ public class QuestionQueryService {
     @Autowired
     private QuestionRepository repository;
 
-    public Question findById(String questionId) {
-        Long id = Long.valueOf(questionId);
+    public Question findById(long id) {
         return repository.findOne(id);
     }
 

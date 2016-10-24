@@ -13,8 +13,7 @@ public class AnswerQueryService {
     @Autowired
     private AnswerRepository repository;
 
-    public Collection<Answer> getAnswers(String questionId) {
-        Long id = Long.valueOf(questionId);
+    public Collection<Answer> getAnswers(long id) {
         return repository.findByQuestionId(id);
     }
 }

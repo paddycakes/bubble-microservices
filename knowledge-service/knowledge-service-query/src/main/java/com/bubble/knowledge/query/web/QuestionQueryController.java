@@ -24,20 +24,20 @@ public class QuestionQueryController {
     private AnswerQueryService answerQueryService;
 
     @RequestMapping(value = "/{questionId}", method = RequestMethod.GET)
-    public ResponseEntity<Question> findQuestion(@PathVariable("questionId") String questionId) {
+    public ResponseEntity<Question> findQuestion(@PathVariable("questionId") long questionId) {
         Question q = questionQueryService.findById(questionId);
         return q == null ?  new ResponseEntity<>(HttpStatus.NOT_FOUND) : ResponseEntity.ok(q);
     }
 
     @RequestMapping(value = "/{questionId}/answers", method = RequestMethod.GET)
-    public ResponseEntity<Collection<Answer>> findAnswers(@PathVariable("questionId") String questionId) {
+    public ResponseEntity<Collection<Answer>> findAnswers(@PathVariable("questionId") long questionId) {
         if (unknownQuestion(questionId)) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         Collection<Answer> answers = answerQueryService.getAnswers(questionId);
         return ResponseEntity.ok(answers);
     }
 
-    private boolean unknownQuestion(String questionId) {
+    private boolean unknownQuestion(long questionId) {
         Question question = questionQueryService.findById(questionId);
         return question == null ? true : false;
     }
